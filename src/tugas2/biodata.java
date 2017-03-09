@@ -43,6 +43,8 @@ public class biodata extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+        tujuan = new javax.swing.JComboBox();
+        jLabel4 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -141,6 +143,17 @@ public class biodata extends javax.swing.JFrame {
             .addGap(0, 9, Short.MAX_VALUE)
         );
 
+        tujuan.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        tujuan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Samarinda", "Balikpapan", " " }));
+        tujuan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tujuanActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        jLabel4.setText("Kota Asal");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -157,13 +170,18 @@ public class biodata extends javax.swing.JFrame {
                                 .addComponent(jLabel1)
                                 .addGap(47, 47, 47)
                                 .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4))
                                 .addGap(18, 18, 18)
-                                .addComponent(tahun, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(ok))
-                            .addComponent(jScrollPane1)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tujuan, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(tahun, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(ok))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(jLabel2)
@@ -193,8 +211,12 @@ public class biodata extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(tahun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ok))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tujuan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -217,13 +239,20 @@ public class biodata extends javax.swing.JFrame {
         // TODO add your handling code here:
         String nm = nama.getText();
         String th=tahun.getSelectedItem().toString();
-        jTextArea1.setText("Nama         : "+nm
-               + "\nAngkatan   : "+th);
+         String Kota=tujuan.getSelectedItem().toString();
+        jTextArea1.setText("Nama\t: "+nm
+               + "\nAngkatan\t: "+th
+               + "\nKota Asal\t: "+Kota);
       //biodata1 a = new biodata1();
        // JOptionPane.showConfirmDialog(this,"anda sudah selesai mendaftar");
         //a.setVisible(true);
        
     }//GEN-LAST:event_okActionPerformed
+
+    private void tujuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tujuanActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_tujuanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -265,6 +294,7 @@ public class biodata extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -274,5 +304,6 @@ public class biodata extends javax.swing.JFrame {
     private javax.swing.JTextField nama;
     private javax.swing.JButton ok;
     private javax.swing.JComboBox tahun;
+    private javax.swing.JComboBox tujuan;
     // End of variables declaration//GEN-END:variables
 }
